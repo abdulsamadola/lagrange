@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Lagrange interpolation">
+    <!-- <link rel="icon" href="../../../../favicon.ico"> -->
+
+    <title>Lagrange interpolation</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="dist/css/index.css" rel="stylesheet">
+    <link href="dist/css/style.css" rel="stylesheet">
+    <link href="dist/css/katex.min.css" rel="stylesheet">
+
+  </head>
+
+  <body>
+    <header>
+      <div class="navbar navbar-danger bg-danger shadow-sm">
+        <div class="container d-flex justify-content-between">
+          <div class="navbar-brand d-flex align-items-center">
+            <marquee><strong style="color: white">Lagrange polynomial interpolation</strong></marquee>
+          </div>
+        </div>
+      </div>
+    </header>
+<div class="container">
+<h1>Lagrange</h1>
+<h4>The following equations define Lagrange polynomial interpolation</h4>
+<div id="LagrangeEquation" class="row">
+ <div class="col">
+   <p id="equation"></p>
+ </div>
+ <div class="col">
+  <p id="equation2"></p>
+ </div>
+</div>
+<p> Fill the table with the data points to be interpolated </p>
+  <div id="table" class="table-editable">
+    <span class="table-add glyphicon glyphicon-plus"></span>
+    <table class="table">
+      <tr>
+        <th>X</th>
+        <th>Y</th>
+        <th></th>
+        <th></th>
+      </tr>
+      <tr>
+        <td contenteditable="true" class="number">2</td>
+        <td contenteditable="true" class="number">0.5</td>
+        <td>
+          <span class="table-remove glyphicon glyphicon-remove"></span>
+        </td>
+        <td>
+          <span class="table-up glyphicon glyphicon-arrow-up"></span>
+          <span class="table-down glyphicon glyphicon-arrow-down"></span>
+        </td>
+      </tr>
+      <tr>
+        <td contenteditable="true" class="number">-8</td>
+        <td contenteditable="true" class="number">0</td>
+        <td>
+          <span class="table-remove glyphicon glyphicon-remove"></span>
+        </td>
+        <td>
+          <span class="table-up glyphicon glyphicon-arrow-up"></span>
+          <span class="table-down glyphicon glyphicon-arrow-down"></span>
+        </td>
+      </tr>
+      <tr>
+        <td contenteditable="true" class="number">6</td>
+        <td contenteditable="true" class="number">4.5</td>
+        <td>
+          <span class="table-remove glyphicon glyphicon-remove"></span>
+        </td>
+        <td>
+          <span class="table-up glyphicon glyphicon-arrow-up"></span>
+          <span class="table-down glyphicon glyphicon-arrow-down"></span>
+        </td>
+      </tr>
+      <!-- This is our clonable table line -->
+      <tr class="hide d-none">
+        <td contenteditable="true" class="number">0</td>
+        <td contenteditable="true" class="number">0</td>
+        <td>
+          <span class="table-remove glyphicon glyphicon-remove"></span>
+        </td>
+        <td>
+          <span class="table-up glyphicon glyphicon-arrow-up"></span>
+          <span class="table-down glyphicon glyphicon-arrow-down"></span>
+        </td>
+      </tr>
+    </table>
+  </div>
+    <button id="clear-btn" class="btn btn-default">Clear data points</button>
+    <button id="calculate-btn" class="btn btn-success">Calculate Lagrange</button>
+
+
+  <p id="export"></p>
+ <div class="row">
+  <div id="divEquationL" class="col">
+  </div>
+</div>
+<br/>
+<div class="row">
+  <div class="col">
+   <p id="equationP"></p>
+  </div>
+</div>
+<div id="divEval" style="display:none;">
+<input id="value"/>
+<button id="interpolate-btn" class="btn btn-success">Interpolate</button>
+</div>
+<div id="resultAlert" class="alert alert-success" role="alert" style="display:none;">
+  Lagrange interpolated value is <strong><span id="resultValue"></span></strong>
+</div>
+<div id="canvas-chart" class="alert alert-danger" role="alert" style="display:none;">
+  <strong> Note: In the next updates, chart will be displayed as shown below;</strong>
+</div>
+<div>
+<img src="dist/img/Chart.png" id="canvas-img" width="50%" style="display:none;">
+</div>
+</div>
+</div>
+<br />
+<br />
+<br />
+<script src="dist/js/jquery-3.3.1.min.js"></script>
+<script src="dist/js/jquery-ui.min.js"></script>
+<script src="dist/js/katex.min.js"></script>
+<script src="dist/js/math.min.js"></script>
+<script src="dist/js/Chart.min.js"></script>
+<script src="lagrange.js"></script>
+<script src="dist/js/index.js"></script>
+
+
+<script>
+katex.render("L_i = \\frac{\\displaystyle \\prod_{{j=0 , j\\neq1}}^{n} (x - x_j)}{\\displaystyle \\prod_{j=0 , j\\neq1}^{n} (x_i - x_j)}" , equation, {
+    throwOnError: false
+});
+katex.render("P_n(x) = \\displaystyle \\sum_{i = 0}^{n} L_i \\cdot f(x_i)" , equation2, {
+    throwOnError: false
+});
+
+
+</script>
+  </body>
+
+
+</html>
